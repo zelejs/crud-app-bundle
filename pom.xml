@@ -22,6 +22,8 @@
         <!---CRUD, scope provided-->
         <crud-plus.version>0.1.0</crud-plus.version>
         <crud-core.version>0.0.5</crud-core.version>
+        <crud-log.version>0.0.2</crud-log.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
     </properties>
 
     <dependencies>
@@ -32,12 +34,23 @@
             <version>5.2.4</version>
         </dependency> -->
         
-        <!-- no dev only option-->
+        <!-- require swagger-ui:0.0.1 instead -->
+        <dependency>
+            <groupId>com.jfeat</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>0.0.1</version>
+        </dependency>
         <!-- <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>crud-dev</artifactId>
             <version>0.0.2</version>
         </dependency> -->
+
+        <dependency>
+            <groupId>com.jfeat</groupId>
+            <artifactId>jwt-core</artifactId>
+            <version>0.0.2</version>
+        </dependency>
 
         <!--dependent runtime -->
         <dependency>
@@ -50,6 +63,13 @@
             <artifactId>crud-core</artifactId>
             <version>${crud-core.version}</version>
         </dependency>
+        
+        <!-- BusinessLog annotation -->
+        <dependency>
+            <groupId>com.jfeat</groupId>
+            <artifactId>crud-log</artifactId>
+            <version>${crud-log.version}</version>
+        </dependency>
 
         <!--  upgrade mysql to 8.0.15 -->
         <dependency>
@@ -57,6 +77,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.15</version> <!--old version 5.1.43-->
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
         <!--log4j logGER-->
@@ -71,19 +98,12 @@
             <version>1.7.29</version>
         </dependency>
 
-        <!-- test scope -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- springboot ones-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+        
         <!-- springboot cache -->
         <dependency>
             <groupId>net.sf.ehcache</groupId>
@@ -95,11 +115,33 @@
             <artifactId>ehcache</artifactId>
             <version>${ehcache.version}</version>
         </dependency>
+        
         <!--springboot test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--    io.swagger    -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.9</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.5.9</version>
+            <scope>compile</scope>
         </dependency>
 
         <!--allow swagger support java 11 (above java9)-->

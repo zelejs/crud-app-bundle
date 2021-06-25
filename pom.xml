@@ -12,18 +12,13 @@
 
     <parent>
         <groupId>com.jfeat</groupId>
-        <artifactId>sb-parent</artifactId>
+        <artifactId>pom-parent</artifactId>
         <version>1.0.0</version>
         <relativePath />
     </parent>
 
     <properties>
         <skipStandalone>true</skipStandalone>
-        <!---CRUD, scope provided-->
-        <crud-plus.version>0.1.0</crud-plus.version>
-        <crud-core.version>0.0.5</crud-core.version>
-        <crud-log.version>0.0.2</crud-log.version>
-        <commons-lang3.version>3.9</commons-lang3.version>
     </properties>
 
     <dependencies>
@@ -31,25 +26,20 @@
         <!-- <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>5.2.4</version>
+            <version>${flyway-core.version}</version>
         </dependency> -->
         
         <!-- require swagger-ui:0.0.1 instead -->
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>swagger-ui</artifactId>
-            <version>0.0.1</version>
+            <version>${swagger-ui.version}</version>
         </dependency>
-        <!-- <dependency>
-            <groupId>com.jfeat</groupId>
-            <artifactId>crud-dev</artifactId>
-            <version>0.0.2</version>
-        </dependency> -->
 
         <dependency>
             <groupId>com.jfeat</groupId>
             <artifactId>jwt-core</artifactId>
-            <version>0.0.2</version>
+            <version>${jwt-core.version}</version>
         </dependency>
 
         <!--dependent runtime -->
@@ -75,7 +65,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.15</version> <!--old version 5.1.43-->
+            <version>${mysql-connector-java.version}</version> <!--old version 5.1.43-->
             <scope>runtime</scope>
         </dependency>
 
@@ -90,12 +80,12 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <version>${log4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.29</version>
+            <version>${slf4j-api.version}</version>
         </dependency>
 
         <!-- springboot ones-->
@@ -108,7 +98,7 @@
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache-core</artifactId>
-            <version>2.6.11</version>
+            <version>${ehcache-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.ehcache</groupId>
@@ -130,17 +120,17 @@
             <scope>test</scope>
         </dependency>
 
-        <!--    io.swagger    -->
+        <!--  io.swagger    -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>1.5.9</version>
+            <version>${io.swagger.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-models</artifactId>
-            <version>1.5.9</version>
+            <version>${io.swagger.version}</version>
             <scope>compile</scope>
         </dependency>
 
@@ -148,27 +138,27 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <version>${jaxb-api.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-core</artifactId>
-            <version>2.3.0</version>
+            <version>${jaxb-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>2.3.1</version>
+            <version>${jaxb-impl.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.activation</groupId>
             <artifactId>activation</artifactId>
-            <version>1.1.1</version>
+            <version>${javax.activation.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.4</version>
+            <version>${aspectjweaver.version}</version>
         </dependency>
     </dependencies>
 
@@ -177,7 +167,7 @@
             <plugin>
                 <groupId>com.github.kongchen</groupId>
                 <artifactId>swagger-maven-plugin</artifactId>
-                <version>3.1.5</version>
+                <version>${swagger-maven-plugin.version}</version>
                 <configuration>
                     <apiSources>
                         <apiSource>
@@ -207,7 +197,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>11</source>
                     <target>11</target>
@@ -216,7 +206,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.5.4.RELEASE</version>
+                <version>${spring-boot-maven-plugin.version}</version>
+                <!-- <version>1.5.4.RELEASE</version> -->
                 <configuration>
                     <skip>${skipStandalone}</skip>
                 </configuration>
@@ -232,13 +223,13 @@
                 </executions>
             </plugin>
 
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.1.2</version>
-            </plugin>
+            </plugin> -->
 
-            <plugin>
+            <!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.1.1</version>
@@ -257,13 +248,13 @@
                         </resource>
                     </resources>
                 </configuration>
-            </plugin>
+            </plugin> -->
 
             <!--asurefire:test-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>${maven-surefire-plugin.version}</version> 
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
@@ -272,7 +263,7 @@
             <!-- <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-                <version>5.2.4</version>
+                <version>${flyway-core.version}</version>
             </plugin> -->
         </plugins>
 
